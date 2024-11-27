@@ -1,6 +1,6 @@
 # Code of Conduct
 
-Re-Akula is an open-source project and we welcome contributions from the community. We expect all contributors to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md). Please read the document before contributing to the project.
+Re-Akula is an open-source project and we welcome contributions from the community. We expect all contributors to adhere to the **Code of Conduct**. Please read the document before contributing to the project.
 
 
 
@@ -56,7 +56,7 @@ The following behaviors are strictly prohibited:
 
 ### **5. Reporting Violations**
 If you witness or experience behavior that violates this Code of Conduct:
-1. Report the incident privately to the project maintainers at [tamghna.official@gmail.com].
+1. Report the incident privately to the project maintainers [bartick](mailto:contact@bartick.me) or [tamaghna](mailto:tamaghna.official@gmail.com).
 2. Include as much detail as possible, such as:
    - A description of the incident.
    - Where and when it occurred.
