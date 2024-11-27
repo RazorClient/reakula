@@ -10,11 +10,11 @@ The project is named after the Akula-class submarine, a symbol of stealth and po
 ## Inspriration
 The project is heavily inspired by by [Akula](https://github.com/akula-bft/akula),form where it derives its namesake from .
 Other projecdts that have lead us to develop this is 
-- RETH(https://github.com/paradigmxyz/reth/tree/main)
-- Lighthouse(https://github.com/sigp/lighthouse)
-- Helios(https://github.com/a16z/helios)
-- Portal Network (https://ethportal.net/)
-- Smol Dot (https://github.com/smol-dot/smoldot)
+- [RETH](https://github.com/paradigmxyz/reth/tree/main)
+- [Lighthouse](https://github.com/sigp/lighthouse)
+- [Helios](https://github.com/a16z/helios)
+- [Portal Network](https://ethportal.net/)
+- [Smol Dot](https://github.com/smol-dot/smoldot)
 
 ## Design Motivation 
 
