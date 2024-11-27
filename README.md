@@ -1,4 +1,4 @@
-# <img src="./static/Reakula.png" width="45px" height="45px" style="vertical-align: middle;" />&nbsp;Re-akula
+# <img src="./static/Reakula.png" width="26px" height="26px" style="vertical-align: middle;" />&nbsp;Re-akula
 
 re-Akula is a passion-driven side project initiated by two developers, [Bartick](https://github.com/bartick) and [Tamaghna](https://github.com/RazorClient), who are deeply interested in exploring the complexities of Ethereum client software. 
 With an ambitious goal of building a lightweight Ethereum client entirely in Rust, this project represents more than just a technical endeavor—it is a means of gaining profound insights into the architecture of Ethereum clients and contributing meaningfully to the broader blockchain ecosystem.
