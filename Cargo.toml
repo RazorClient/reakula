@@ -1,0 +1,21 @@
+[workspace]
+members = []
+resolver = "2"
+
+[workspace.package]
+name = "reakula"
+description = "A very simple light for ethereum in rust"
+version = "0.1.0"
+authors = ["Bartick <contact@bartick.me>", "Tamaghna <tamaghna.official@gmail.com>"]
+edition = "2021"
+
+[workspace.dependencies]
+
+[profile.dev]
+opt-level = 3
+lto = true
+
+[profile.release]
+opt-level = 3
+strip = "debuginfo"
+lto = true
