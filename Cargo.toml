@@ -1,5 +1,6 @@
 [workspace]
-members = []
+members = ["reakula"]
+default-members = ["reakula"]
 resolver = "2"
 
 [workspace.package]
@@ -10,6 +11,8 @@ authors = ["Bartick <contact@bartick.me>", "Tamaghna <tamaghna.official@gmail.co
 edition = "2021"
 
 [workspace.dependencies]
+tokio = { version = "1.41.1", features = ["full"] }
+eyre = { version = "0.6.12" }
 
 [profile.dev]
 opt-level = 3
