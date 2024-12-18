@@ -306,6 +306,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "reakula-specs"
+version = "0.1.0"
+
+[[package]]
 name = "redox_syscall"
 version = "0.5.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"

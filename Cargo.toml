@@ -1,5 +1,5 @@
 [workspace]
-members = ["reakula"]
+members = ["reakula", "specs"]
 default-members = ["reakula"]
 resolver = "2"
 
