@@ -1,8 +1,16 @@
 [package]
-name = "reakula-specs"
+name = "specs"
 description.workspace = true
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
+rust-version.workspace = true
 
 [dependencies]
+serde = { workspace = true, features = ["derive"] }
+sszb.workspace = true
+sszb_derive.workspace = true
+bytes = { workspace = true, features = ["serde"] }
+safe_arith.workspace = true
+alloy-primitives.workspace = true
+alloy_helper.workspace = true
