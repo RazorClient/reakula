@@ -1,0 +1,130 @@
+name: Reakula CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened, review_requested]
+
+# permissions:
+#   pull-requests: read
+
+jobs:
+  # check_approvals:
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'pull_request'
+  #   outputs:
+  #     approved: ${{ steps.check.outputs.approved }}
+  #   steps:
+  #     - name: Check PR approvals
+  #       id: check
+  #       run: |
+  #         approvals=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+  #           "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews" | \
+  #           jq '[.[] | select(.state == "APPROVED")] | length')
+  #         if [ "$approvals" -ge 1 ]; then
+  #           echo "approved=true" >> $GITHUB_OUTPUT
+  #         else
+  #           echo "approved=false" >> $GITHUB_OUTPUT
+  #         fi
+
+  linux-builds:
+    # needs: check_approvals
+    if: github.event_name == 'push' || needs.check_approvals.outputs.approved == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [x86_64-unknown-linux-gnu, aarch64-unknown-linux-gnu]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: ${{ matrix.target }}
+          override: true
+      - name: Install cross-compilation dependencies
+        if: matrix.target == 'aarch64-unknown-linux-gnu'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu
+      - name: Build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --target ${{ matrix.target }}
+      - name: Test
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --target ${{ matrix.target }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux-${{ matrix.target }}
+          path: target/${{ matrix.target }}/release/
+
+  macos-builds:
+    # needs: check_approvals
+    if: github.event_name == 'push' || needs.check_approvals.outputs.approved == 'true'
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [x86_64-apple-darwin, aarch64-apple-darwin]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: ${{ matrix.target }}
+          override: true
+      - name: Build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --target ${{ matrix.target }}
+      - name: Test
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --target ${{ matrix.target }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: macos-${{ matrix.target }}
+          path: target/${{ matrix.target }}/release/
+
+  windows-builds:
+    # needs: check_approvals
+    if: github.event_name == 'push' || needs.check_approvals.outputs.approved == 'true'
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [x86_64-pc-windows-msvc]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: ${{ matrix.target }}
+          override: true
+      - name: Build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --target ${{ matrix.target }}
+      - name: Test
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --target ${{ matrix.target }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-${{ matrix.target }}
+          path: target/${{ matrix.target }}/release/
