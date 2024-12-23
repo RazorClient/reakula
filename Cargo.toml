@@ -1,5 +1,5 @@
 [workspace]
-members = ["reakula", "safe_arith", "specs"]
+members = [ "alloy-helper","reakula", "safe_arith", "specs"]
 default-members = ["reakula"]
 resolver = "2"
 
@@ -17,6 +17,10 @@ eyre = { version = "0.6.12" }
 sszb = { package = "sszb", git = "https://github.com/ghiliweld/sszb.git" }
 sszb_derive = { package = "sszb_derive", git = "https://github.com/ghiliweld/sszb.git" }
 safe_arith = { path = "safe_arith" }
+alloy-primitives = { version = "0.8.15" }
+serde = { version = "1.0.216", features = ["derive"] }
+bytes = { version = "1.9.0", features = ["serde"] }
+alloy_helper = { path = "alloy-helper" }
 
 [profile.dev]
 opt-level = 3
