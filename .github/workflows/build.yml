@@ -1,15 +1,15 @@
 name: Reakula CI
 
-# Restrict events to only run on main/stable, plus PR events to main/stable.
+# Restrict events to only run on master/stable, plus PR events to master/stable.
 on:
   push:
     branches:
-      - main
+      - master
       - stable
   pull_request:
     branches:
       - unstable
-      - main
+      - master
     types: [opened, synchronize, reopened, review_requested, ready_for_review]
 
 # Minimal permissions required for checking PR approvals
@@ -45,7 +45,7 @@ jobs:
   # 2) Linux Builds
   linux-builds:
     needs: check_approvals
-    if: github.ref_name == 'main' || github.ref_name == 'stable' || needs.check_approvals.outputs.approved == 'true'
+    if: github.ref_name == 'master' || github.ref_name == 'stable' || needs.check_approvals.outputs.approved == 'true'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -111,7 +111,7 @@ jobs:
   # 3) macOS Builds
   macos-builds:
     needs: check_approvals
-    if: github.ref_name == 'main' || github.ref_name == 'stable' || needs.check_approvals.outputs.approved == 'true'
+    if: github.ref_name == 'master' || github.ref_name == 'stable' || needs.check_approvals.outputs.approved == 'true'
     runs-on: macos-latest
     strategy:
       fail-fast: false
@@ -171,7 +171,7 @@ jobs:
   # 4) Windows Builds
   windows-builds:
     needs: check_approvals
-    if: github.ref_name == 'main' || github.ref_name == 'stable' || needs.check_approvals.outputs.approved == 'true'
+    if: github.ref_name == 'master' || github.ref_name == 'stable' || needs.check_approvals.outputs.approved == 'true'
     runs-on: windows-latest
     strategy:
       fail-fast: false
