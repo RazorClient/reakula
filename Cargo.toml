@@ -21,6 +21,7 @@ alloy-primitives = { version = "0.8.15" }
 serde = { version = "1.0.216", features = ["derive"] }
 bytes = { version = "1.9.0", features = ["serde"] }
 alloy_helper = { path = "alloy-helper" }
+byteorder = { version = "1.5.0" }
 
 [profile.dev]
 opt-level = 3

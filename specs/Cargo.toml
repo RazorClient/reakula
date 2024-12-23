@@ -14,3 +14,4 @@ bytes = { workspace = true, features = ["serde"] }
 safe_arith.workspace = true
 alloy-primitives.workspace = true
 alloy_helper.workspace = true
+byteorder.workspace = true

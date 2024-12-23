@@ -2055,6 +2055,7 @@ version = "0.1.0"
 dependencies = [
  "alloy-primitives",
  "alloy_helper",
+ "byteorder",
  "bytes",
  "safe_arith 0.1.0",
  "serde",
