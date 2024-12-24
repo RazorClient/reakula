@@ -19,44 +19,44 @@ use crate::macros::impl_safe_arith;
     SszbEncode,
     SszbDecode,
 )]
-pub struct Gewi {
+pub struct Gwei {
     value: u64,
 }
 
-impl From<u64> for Gewi {
+impl From<u64> for Gwei {
     fn from(value: u64) -> Self {
-        Gewi { value }
+        Gwei { value }
     }
 }
 
-impl From<Gewi> for u64 {
-    fn from(gewi: Gewi) -> u64 {
-        gewi.value
+impl From<Gwei> for u64 {
+    fn from(gwei: Gwei) -> u64 {
+        gwei.value
     }
 }
 
-impl From<usize> for Gewi {
+impl From<usize> for Gwei {
     fn from(value: usize) -> Self {
-        Gewi {
+        Gwei {
             value: value as u64,
         }
     }
 }
 
-impl From<Gewi> for usize {
-    fn from(gewi: Gewi) -> usize {
+impl From<Gwei> for usize {
+    fn from(gewi: Gwei) -> usize {
         gewi.value as usize
     }
 }
 
-impl_safe_arith!(Gewi, Gewi);
-impl_safe_arith!(Gewi, u64);
+impl_safe_arith!(Gwei, Gwei);
+impl_safe_arith!(Gwei, u64);
 
-impl Gewi {
+impl Gwei {
 
     /// Creates a new Gewi.
     pub const fn new(value: u64) -> Self {
-        Gewi { value }
+        Gwei { value }
     }
 
     /// Returns the value of the Gewi.
@@ -65,7 +65,7 @@ impl Gewi {
     }
 
     pub fn max_value() -> Self {
-        Gewi { value: u64::MAX }
+        Gwei { value: u64::MAX }
     }
 
     pub fn as_u64(&self) -> u64 {
