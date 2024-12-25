@@ -6,6 +6,7 @@ use bytes::{Buf, BufMut};
 use crate::macros::impl_safe_arith;
 
 #[derive(
+    Default,
     Debug,
     Clone,
     Copy,
