@@ -1,5 +1,5 @@
 use super::primitives::{DomainType, Epoch, Slot, Version};
-use alloy_primitives::fixed_bytes;
+use alloy_helper::primitives::fixed_bytes;
 use byteorder::LittleEndian;
 
 
