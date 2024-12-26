@@ -1,4 +1,4 @@
-use alloy_primitives::B256;
+use alloy_helper::primitives::B256;
 use serde::{Deserialize, Serialize};
 use sszb::SszDecode;
 use sszb_derive::{SszbDecode, SszbEncode};

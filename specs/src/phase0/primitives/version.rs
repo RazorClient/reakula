@@ -1,4 +1,4 @@
-use alloy_primitives::aliases::B32;
+use alloy_helper::primitives::aliases::B32;
 use serde::{Deserialize, Serialize};
 use sszb::SszDecode;
 use sszb_derive::{SszbDecode, SszbEncode};
