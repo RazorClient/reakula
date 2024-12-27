@@ -2,10 +2,17 @@
 /// These are the helper functions for the reakula
 pub(crate) mod macros;
 
+pub mod common;
+
+pub mod presets;
+
 /// Starting of with the phase0 specs
 /// This module will contain all the specs for the phase0 of the eth2.0
 /// This is the very starting of our journey to the ehtereum
 pub mod phase0 {
+
+    /// The beacon state of ethereum
+    pub mod beacon_state;
 
     /// These are the custom types of the ethereum
     pub mod primitives {
@@ -63,4 +70,75 @@ pub mod phase0 {
     }
 
     pub mod constants;
+
+    pub mod containers {
+        pub mod fork;
+        pub use fork::*;
+
+        pub mod fork_data;
+        pub use fork_data::*;
+
+        pub mod checkpoint;
+        pub use checkpoint::*;
+
+        pub mod validator;
+        pub use validator::*;
+
+        pub mod attestation_data;
+        pub use attestation_data::*;
+
+        pub mod indexed_attestation;
+        pub use indexed_attestation::*;
+
+        pub mod pending_attestation;
+        pub use pending_attestation::*;
+
+        pub mod eth1_data;
+        pub use eth1_data::*;
+
+        pub mod historical_batch;
+        pub use historical_batch::*;
+
+        pub mod deposit_message;
+        pub use deposit_message::*;
+
+        pub mod deposit_data;
+        pub use deposit_data::*;
+
+        pub mod beacon_block_header;
+        pub use beacon_block_header::*;
+
+        pub mod signing_data;
+        pub use signing_data::*;
+
+        pub mod proposer_slashing;
+        pub use proposer_slashing::*;
+
+        pub mod attester_slashing;
+        pub use attester_slashing::*;
+
+        pub mod attestation;
+        pub use attestation::*;
+
+        pub mod deposit;
+        pub use deposit::*;
+
+        pub mod voluntary_exit;
+        pub use voluntary_exit::*;
+
+        pub mod beacon_block_body;
+        pub use beacon_block_body::*;
+
+        pub mod beacon_block;
+        pub use beacon_block::*;
+
+        pub mod signed_voluntary_exit;
+        pub use signed_voluntary_exit::*;
+
+        pub mod signed_beacon_block;
+        pub use signed_beacon_block::*;
+
+        pub mod signed_beacon_block_header;
+        pub use signed_beacon_block_header::*;
+    }
 }
