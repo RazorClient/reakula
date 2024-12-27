@@ -1,5 +1,5 @@
 [workspace]
-members = [ "alloy-helper","reakula", "safe-arith", "specs"]
+members = [ "alloy-helper", "helper", "reakula", "safe-arith", "specs"]
 default-members = ["reakula"]
 resolver = "2"
 
@@ -14,14 +14,18 @@ rust-version = "1.81"
 [workspace.dependencies]
 tokio = { version = "1.41.1", features = ["full"] }
 eyre = { version = "0.6.12" }
-sszb = { package = "sszb", git = "https://github.com/ghiliweld/sszb.git" }
-sszb_derive = { package = "sszb_derive", git = "https://github.com/ghiliweld/sszb.git" }
-safe_arith = { path = "safe-arith" }
-alloy-primitives = { version = "0.8.15" }
+byteorder = { version = "1.5.0" }
 serde = { version = "1.0.216", features = ["derive"] }
 bytes = { version = "1.9.0", features = ["serde"] }
+typenum = { version = "=1.17.0" }
+
+sszb = { package = "sszb", git = "https://github.com/ghiliweld/sszb.git" }
+sszb_derive = { package = "sszb_derive", git = "https://github.com/ghiliweld/sszb.git" }
+
+specs = { path = "specs" }
+safe_arith = { path = "safe-arith" }
 alloy_helper = { path = "alloy-helper" }
-byteorder = { version = "1.5.0" }
+
 
 [profile.dev]
 opt-level = 3
