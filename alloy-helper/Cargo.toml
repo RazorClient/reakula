@@ -7,4 +7,4 @@ edition.workspace = true
 rust-version.workspace = true
 
 [dependencies]
-alloy-primitives.workspace = true
+alloy-primitives = { version = "0.8.15" }
