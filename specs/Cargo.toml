@@ -12,6 +12,6 @@ sszb.workspace = true
 sszb_derive.workspace = true
 bytes = { workspace = true, features = ["serde"] }
 safe_arith.workspace = true
-alloy-primitives.workspace = true
 alloy_helper.workspace = true
 byteorder.workspace = true
+typenum.workspace = true
