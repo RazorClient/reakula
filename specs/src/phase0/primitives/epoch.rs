@@ -8,6 +8,7 @@ use crate::macros::impl_safe_arith;
 use crate::phase0::primitives::slot::Slot;
 
 #[derive(
+    Default,
     Debug,
     Clone,
     Copy,

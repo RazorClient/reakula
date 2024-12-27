@@ -5,6 +5,7 @@ use sszb_derive::{SszbDecode, SszbEncode};
 use bytes::{Buf, BufMut};
 
 #[derive(
+    Default,
     Debug,
     Clone,
     Copy,
